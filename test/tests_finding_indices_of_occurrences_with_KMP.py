@@ -12,6 +12,9 @@ class MyTestCase(unittest.TestCase):
     def test_lab7_case3(self):
         self.assertEqual(knuth_morris_pratt('ADC', 'BADCDADC'), {1, 5})
 
+    def test_lab7_case4(self):
+        self.assertEqual(knuth_morris_pratt('ADCADCCA', 'BADCADCDDADCADCADCCACCA'), {12})
+
 
 if __name__ == '__main__':
     unittest.main()
