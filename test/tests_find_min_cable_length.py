@@ -5,6 +5,16 @@ from src.find_min_cable_length import prim_algorithm_for_iot
 class TestPrimAlgorithm(unittest.TestCase):
     @staticmethod
     def read_edges_and_nodes_from_file(file_path):
+        """
+        This function reads a file named communication_wells.csv, which contains edges between nodes and their weights,
+        returning a list of tuples representing the edges and the total number of nodes.
+
+        Args:
+            file_path (str): Path to the CSV file to read.
+
+        Returns:
+            tuple: A list of edge tuples (first_vertex, second_vertex, weight) and the total number of nodes.
+        """
         vertices = []
         node_set = set()
         with open(file_path, 'r') as file:
