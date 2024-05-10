@@ -1,6 +1,7 @@
 """Lab 8"""
 from src.heap_based_priority_queue import BinaryHeap
 
+
 def create_graph(edges, num_nodes):
     """
     Function to create a graph using an adjacency list.
@@ -23,10 +24,10 @@ def create_graph(edges, num_nodes):
 
 def prim_algorithm_for_iot(vertices, amount_of_vertices):
     """
-    Direct implementation of Prim's algorithm for finding MST with using max BinaryHeap
+    Direct implementation of Prims algorithm for finding MST with using max BinaryHeap
 
     Args:
-        vertices (list of tuples): List of graph edges, where each tuple is of the form (first_vertex, second_vertex, weight).
+        vertices (list of tuples): List of graph edges, where each tuple = (first_vertex, second_vertex, weight).
         amount_of_vertices (int): Total number of vertices taken from the file
 
     Returns:
