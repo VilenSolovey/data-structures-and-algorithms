@@ -1,9 +1,10 @@
 import unittest
-from find_num_of_islands import count_number_of_islands
+from src.find_num_of_islands import count_number_of_islands
+
 
 class TestFindIslandsAmount(unittest.TestCase):
-     
-    @staticmethod
+
+
     def read_output_txt_files(self, output_file_path):
         with open(output_file_path, 'r') as file:
             return int(file.read().strip())
