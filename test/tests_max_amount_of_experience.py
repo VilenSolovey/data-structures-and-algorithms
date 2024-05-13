@@ -1,5 +1,5 @@
 import unittest
-from max_amount_of_experience import calculate_max_experience
+from src.max_amount_of_experience import calculate_max_experience
 
 
 def read_input_from_file(filename):

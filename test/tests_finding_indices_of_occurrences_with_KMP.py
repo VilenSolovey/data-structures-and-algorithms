@@ -1,5 +1,5 @@
 import unittest
-from finding_indices_of_occurrences_with_KMP import knuth_morris_pratt
+from src.finding_indices_of_occurrences_with_KMP import knuth_morris_pratt
 
 
 class MyTestCase(unittest.TestCase):

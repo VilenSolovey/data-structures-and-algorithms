@@ -1,5 +1,5 @@
 import unittest
-from heap_based_priority_queue import BinaryHeap, Node
+from src.heap_based_priority_queue import BinaryHeap
 
 
 class TestBinaryHeap(unittest.TestCase):

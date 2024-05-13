@@ -1,5 +1,5 @@
 import unittest
-from APLab1 import is_arr_monotonic
+from src.find_if_arr_is_monotonic import is_arr_monotonic
 
 
 class TestLab1(unittest.TestCase):

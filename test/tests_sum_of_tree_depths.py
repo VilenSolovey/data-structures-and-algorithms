@@ -1,5 +1,6 @@
 import unittest
-from APLab3 import sum_of_depths,TreeNode
+from src.sum_of_tree_depths import sum_of_depths, TreeNode
+
 
 class TestSumOfDepths(unittest.TestCase):
     def test_none_tree(self):
