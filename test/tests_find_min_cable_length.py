@@ -27,13 +27,13 @@ class TestPrimAlgorithm(unittest.TestCase):
         return vertices, amount_of_vertices
 
     def test_search_of_length_1(self):
-        file_path = "resources/resources_lab8/communication_wells.csv"
+        file_path = "test/resources/resources_lab8/communication_wells.csv"
         vertices, amount_of_vertices = self.read_edges_and_nodes_from_file(file_path)
         find_cable_length = prim_algorithm_for_iot(vertices, amount_of_vertices)
         self.assertEqual(29, find_cable_length)
 
     def test_search_of_length_2(self):
-        file_path = "resources/resources_lab8/communication_wells_2.csv"
+        file_path = "test/resources/resources_lab8/communication_wells_2.csv"
         vertices, amount_of_vertices = self.read_edges_and_nodes_from_file(file_path)
         find_cable_length = prim_algorithm_for_iot(vertices, amount_of_vertices)
         self.assertEqual(45, find_cable_length)

@@ -15,12 +15,12 @@ def read_input_from_file(filename):
 
 class TestMaxExperience(unittest.TestCase):
     def test_first_calculate_max_experience(self):
-        input_filename = 'resources_lab6/career_in1.txt'
+        input_filename = 'test/resources/resources_lab6/career_in1.txt'
         company_structure = read_input_from_file(input_filename)
 
-        output_filename = 'resources_lab6/career.out1.txt'
+        output_filename = 'test/resources/resources_lab6/career.out1.txt'
 
-        calculate_max_experience(company_structure, 'resources_lab6/career.out1.txt')
+        calculate_max_experience(company_structure, 'test/resources/resources_lab6/career.out1.txt')
 
         with open(output_filename, 'r') as file:
             result = int(file.readline())
@@ -28,12 +28,12 @@ class TestMaxExperience(unittest.TestCase):
         self.assertEqual(result, 12)
 
     def test_second_calculate_max_experience(self):
-        input_filename = 'resources_lab6/career_in2.txt'
+        input_filename = 'test/resources/resources_lab6/career_in2.txt'
         company_structure = read_input_from_file(input_filename)
 
-        output_filename = 'resources_lab6/career.out2.txt'
+        output_filename = 'test/resources/resources_lab6/career.out2.txt'
 
-        calculate_max_experience(company_structure, 'resources_lab6/career.out2.txt')
+        calculate_max_experience(company_structure, 'test/resources/resources_lab6/career.out2.txt')
 
         with open(output_filename, 'r') as file:
             result = int(file.readline())
