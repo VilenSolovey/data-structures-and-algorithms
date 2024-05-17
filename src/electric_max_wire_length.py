@@ -31,33 +31,24 @@ def maximum_wire_length(distance, heights, output_filename):
     """
     amount_of_pillars = len(heights)
 
-    # Creating an empty table where we keep the maximums wire length
-    # by considering the current pillar height as either 1 or its maximum height
     cable_length = []
     for pillar in range(amount_of_pillars):
         cable_length.append([0, 0])
 
-    # In this cycle, we go through heights from the second height to the end
     for pillar in range(1, amount_of_pillars):
-        # Here we find the wire length in case when we consider the minimum height in the conditions it is 1
-        # First, we try to find wire length from the bottom of the current pillar to the bottom of the previous pillar
-        current_bottom_previous_bottom = cable_length[pillar - 1][0] + find_wire_length(distance, 1, 1)
-        # Then, we try to find wire length from the top of the current pillar to the bottom of the previous pillar
-        current_top_previous_top = cable_length[pillar - 1][1] + find_wire_length(distance, 1, heights[pillar - 1])
-        cable_length[pillar][0] = max(current_bottom_previous_bottom, current_top_previous_top)
-        # Here we find the wire length in case when we consider the maximum possible height of the pillar
-        # First, we try to find wire length from the bottom of the current pillar to the top of the previous pillar
-        current_bottom_previous_top = cable_length[pillar - 1][0] + find_wire_length(distance, heights[pillar], 1)
-        # Then, we try to find wire length from the top of the current pillar to the top of the previous pillar
-        current_top_previous_top = cable_length[pillar - 1][1] + find_wire_length(distance, heights[pillar], heights[pillar - 1])
-        cable_length[pillar][1] = max(current_bottom_previous_top, current_top_previous_top)
+       
+        previous_bottom_to_current_button = cable_length[pillar - 1][0] + find_wire_length(distance, 1, 1)
+        preevious_top_to_current_bottom = cable_length[pillar - 1][1] + find_wire_length(distance, 1, heights[pillar - 1])
+        cable_length[pillar][0] = max(previous_bottom_to_current_button, preevious_top_to_current_bottom)
 
-    # Here we already know the maximum length of wire, by taking the maximum value of wire length of the last pillar
-    wire_lenght= round(max(cable_length[amount_of_pillars - 1][0], cable_length[amount_of_pillars - 1][1]), 2)
+        previous_bottom_to_current_top = cable_length[pillar - 1][0] + find_wire_length(distance, heights[pillar], 1)
+        previous_top_to_current_top = cable_length[pillar - 1][1] + find_wire_length(distance, heights[pillar], heights[pillar - 1])
+        cable_length[pillar][1] = max(previous_bottom_to_current_top, previous_top_to_current_top)
 
-    # And finally writes the result to the output file
+    wire_lenght = round(max(cable_length[amount_of_pillars - 1][0], cable_length[amount_of_pillars - 1][1]), 2)
+
     with open(output_filename, 'w') as file:
-        file.write(f"{wire_lenght}")
+        file.write(f"{wire_lenght}") 
 
     return wire_lenght
 
