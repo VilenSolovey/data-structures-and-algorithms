@@ -31,21 +31,22 @@ def maximum_wire_length(distance, heights, output_filename):
     """
     amount_of_pillars = len(heights)
 
-    cable_length = []
-    for pillar in range(amount_of_pillars):
-        cable_length.append([0, 0])
+    value_bottom = 0
+    value_top = 0
 
     for pillar in range(1, amount_of_pillars):
-       
-        previous_bottom_to_current_button = cable_length[pillar - 1][0] + find_wire_length(distance, 1, 1)
-        preevious_top_to_current_bottom = cable_length[pillar - 1][1] + find_wire_length(distance, 1, heights[pillar - 1])
-        cable_length[pillar][0] = max(previous_bottom_to_current_button, preevious_top_to_current_bottom)
+        
+        previous_bottom_to_current_bottom = value_bottom + find_wire_length(distance, 1, 1)
+        preevious_top_to_current_bottom = value_top + find_wire_length(distance, 1, heights[pillar - 1])
+        current_value_bottom = max(previous_bottom_to_current_bottom, preevious_top_to_current_bottom)
+        previous_bottom_to_current_top = value_bottom + find_wire_length(distance, heights[pillar], 1)
+        previous_top_to_current_top = value_top + find_wire_length(distance, heights[pillar], heights[pillar - 1])
+        current_value_top = max(previous_bottom_to_current_top, previous_top_to_current_top)
 
-        previous_bottom_to_current_top = cable_length[pillar - 1][0] + find_wire_length(distance, heights[pillar], 1)
-        previous_top_to_current_top = cable_length[pillar - 1][1] + find_wire_length(distance, heights[pillar], heights[pillar - 1])
-        cable_length[pillar][1] = max(previous_bottom_to_current_top, previous_top_to_current_top)
+        value_bottom = current_value_bottom
+        value_top = current_value_top
 
-    wire_lenght = round(max(cable_length[amount_of_pillars - 1][0], cable_length[amount_of_pillars - 1][1]), 2)
+    wire_lenght = round(max(value_top, value_bottom), 2)
 
     with open(output_filename, 'w') as file:
         file.write(f"{wire_lenght}") 
